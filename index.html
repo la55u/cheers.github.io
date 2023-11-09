@@ -3,24 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Cheers redirect</title>
   </head>
   <body>
-    <button onclick="onOpen()">Open Expo Go</button>
-
     <script>
       const params = new URLSearchParams(document.location.search)
       const to = params.get("to")
       params.delete("to") // no need for it in the app
       const redirectUrl = to + "?" + params.toString()
       
-      //const redirectUrl = `exp://192.168.1.45:8081/--/upload/success${window.location.search}`;
-      //const redirectUrl = `exp://192.168.1.45:8081/--/legal`;
-
-      function onOpen() {
-        window.location.href = redirectUrl;
-      }
-
       window.addEventListener("load", () => {
         //if (!confirm(`Redirecting to: ${redirectUrl}`)) return;
         window.location.href = redirectUrl;
